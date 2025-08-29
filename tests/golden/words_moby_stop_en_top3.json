@@ -1,0 +1,19 @@
+{
+  "report_version": 1,
+  "command": "words",
+  "stopwords": "english",
+  "sort": "count",
+  "order": "desc",
+  "top": 3,
+  "files": [
+    {
+      "path": "books/mobydick.txt",
+      "num_words": 215838,
+      "items": [
+        { "word": "whale", "num": 1244 },
+        { "word": "one", "num": 925 },
+        { "word": "like", "num": 647 }
+      ]
+    }
+  ]
+}

@@ -1,60 +1,42 @@
-def get_num_words(string):
-    """
-    Counts the number of words in a given string.
-    
-    Args:
-        string (str): The input string.
-        
-    Returns:
-        int: The number of words in the string.
-    """
-    words = string.split()
-    return len(words)
+"""
+Compatibility shim for legacy imports.
 
-def get_num_chars_dict(string):
-    """
-    Counts the occurrences of each character in a given string.
-    
-    Args:
-        string (str): The input string.
-        
-    Returns:
-        dict: A dictionary with characters as keys and their counts as values.
-    """
-    char_count = {}
-    for char in string:
-        char = char.lower()
-        if char in char_count:
-            char_count[char] += 1
-        else:
-            char_count[char] = 1
-    return char_count
+Re-exports functions and constants from the refactored bookbot package so
+existing code that imports `stats` continues to work.
+"""
+from typing import Dict, List, Optional, Set, Tuple  # noqa: F401
 
-def sort_on(items):
-        return items["num"]
-
-def sort_dict(dict):
-        dict_list = []
+from bookbot.metrics.counts import (  # noqa: F401
+    get_num_words,
+    get_num_chars_dict,
+    sort_counts,
+    get_word_counts,
+    sort_words,
+    count_ngrams,
+    sort_ngrams,
+    get_num_words_whitespace_stream,
+    count_chars_stream,
+    get_word_counts_stream,
+    count_ngrams_stream,
+)
+from bookbot.metrics.readability import readability_metrics  # noqa: F401
+from bookbot.metrics.vocabulary import (  # noqa: F401
+    vocabulary_metrics,
+    STOPWORDS_EN,
+)
+from bookbot.metrics.categories import category_counts  # noqa: F401
+from bookbot.rendering import print_histogram  # noqa: F401
 
 
-        #{"b": 4868}
-        #{"char": "b", "num": 4868}
-        for key in dict:
-            char_dict = {}
-            count = dict[key]
-            char_dict["char"] = key
-            char_dict["num"] = count
-            dict_list.append(char_dict)
-        dict_list = sorted(dict_list, key=sort_on, reverse=True)
-        return dict_list
-        
-def report_list(dict_list):
+def report_list(book_path, num_words, dict_list):
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {book_path}...")
+    print("------------ WORD COUNT ------------")
+    print(f"Found {num_words} total words")
+    print("--------- CHARACTER COUNT -----------")
     for item in dict_list:
         char = item["char"]
-        num = item["num"]
-        print(f"Character '{char}' found {num} times")       
-
-    
-            
-        
-        
+        count = item["num"]
+        if str(char).isalpha():
+            print(f"{char}: {count}")
+    print("============= END =============")

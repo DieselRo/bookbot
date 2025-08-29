@@ -1,0 +1,19 @@
+name: AGENTS.md Mesh
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ "**" ]
+
+jobs:
+  validate-agents:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Validate AGENTS.md files
+        run: |
+          python scripts/scaffold_agents.py --validate

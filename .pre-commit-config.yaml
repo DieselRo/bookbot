@@ -1,0 +1,8 @@
+repos:
+  - repo: local
+    hooks:
+      - id: agents-md-validate
+        name: Validate AGENTS.md mesh
+        entry: python scripts/scaffold_agents.py --validate
+        language: system
+        pass_filenames: false

@@ -1,0 +1,19 @@
+{
+  "report_version": 1,
+  "command": "chars",
+  "letters_only": true,
+  "sort": "count",
+  "order": "desc",
+  "top": 3,
+  "files": [
+    {
+      "path": "books/mobydick.txt",
+      "num_words": 215838,
+      "items": [
+        { "char": "e", "num": 119351 },
+        { "char": "t", "num": 89874 },
+        { "char": "a", "num": 79226 }
+      ]
+    }
+  ]
+}

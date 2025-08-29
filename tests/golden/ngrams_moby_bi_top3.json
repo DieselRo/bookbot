@@ -1,0 +1,20 @@
+{
+  "report_version": 1,
+  "command": "ngrams",
+  "n": 2,
+  "stopwords": "english",
+  "sort": "count",
+  "order": "desc",
+  "top": 3,
+  "files": [
+    {
+      "path": "books/mobydick.txt",
+      "n": 2,
+      "items": [
+        { "ngram": "sperm whale", "num": 183 },
+        { "ngram": "white whale", "num": 106 },
+        { "ngram": "project gutenberg", "num": 89 }
+      ]
+    }
+  ]
+}

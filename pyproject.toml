@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bookbot"
+version = "0.1.0"
+description = "CLI to analyze books: words, characters, n-grams, readability"
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["text", "cli", "books", "analysis"]
+authors = [{ name = "BookBot Dev" }]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Environment :: Console",
+  "Topic :: Text Processing",
+]
+
+[project.scripts]
+bookbot = "bookbot.cli:main"
+
+[tool.setuptools]
+packages = ["bookbot"]
+py-modules = ["main", "stats"]
+
+[tool.black]
+line-length = 88
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "W"]
+ignore = ["E501"]
